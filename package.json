@@ -1,0 +1,25 @@
+{
+  "name": "nodule-array",
+  "description": "Array nodes for Chiχ",
+  "author": "Rob Halff <rob.halff@gmail.com>",
+  "version": "0.0.2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodule/array.git"
+  },
+  "engines": {
+    "node": ">=0.6.0"
+  },
+  "main": "x",
+  "scripts": {
+    "test": "chit -r"
+  },
+  "devDependencies": {
+    "chit": "0.x.x"
+  },
+  "chix": {
+    "name": "array",
+    "color": "rgb(136,0,35)"
+  }
+}
