@@ -1,0 +1,63 @@
+{
+  "name": "array",
+  "description": "Array nodes for Chiχ",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodule/array.git"
+  },
+  "nodes": [
+    {
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Array",
+            "type": "array"
+          }
+        },
+        "output": {
+          "out": {
+            "title": "out",
+            "type": "array"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Creating array"
+      },
+      "description": "Creates an array.",
+      "ns": "array",
+      "name": "create",
+      "fn": "output.out = input.in.slice();\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Array",
+            "type": "array"
+          },
+          "seperator": {
+            "title": "Seperator",
+            "type": "string",
+            "default": ","
+          }
+        },
+        "output": {
+          "out": {
+            "title": "out",
+            "type": "string"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Joining array"
+      },
+      "description": "Joins all elements of an array into a string.",
+      "ns": "array",
+      "name": "join",
+      "fn": "output.out = input.in.join(input.seperator)\n"
+    }
+  ],
+  "twigs": []
+}

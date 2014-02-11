@@ -1,0 +1,22 @@
+{
+  "name": "create",
+  "ns": "array",
+  "description": "Creates an array.",
+  "phrases": {
+    "active": "Creating array"
+  },
+  "ports": {
+    "input": {
+      "in": {
+        "title": "Array",
+        "type": "array"
+      }
+    },
+    "output": {
+      "out": {
+        "title": "out",
+        "type": "array"
+      }
+    }
+  }
+}
