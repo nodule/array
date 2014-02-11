@@ -1,0 +1,15 @@
+title:  test array
+description: test index setting
+
+Arr(array/create)
+Join(array/join)
+Log(console/log)
+
+'Rob'   ->  [0] in Arr out [1] -> [0] in Join
+'Halff' ->  [1] in Arr out [0] -> [1] in Join
+
+# _should_ return normal order [0] Rob, [1] Halff
+Arr   out -> msg Log
+
+# _should_ return Halff,Rob
+Join  out -> msg Log
