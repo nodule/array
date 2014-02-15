@@ -1,2 +1,2 @@
-output.length = input.array.push(input.in);
-output.out = input.array;
+output.length = input.in.push(input.value);
+output.out    = input.in;

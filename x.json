@@ -87,7 +87,7 @@
       "description": "Append value to an array.",
       "ns": "array",
       "name": "push",
-      "fn": "output.length = input.array.push(input.in);\noutput.out = input.array;\n"
+      "fn": "output.length = input.in.push(input.value);\noutput.out    = input.in;\n"
     }
   ],
   "twigs": []
