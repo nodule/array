@@ -1,0 +1,30 @@
+{
+  "name": "push",
+  "ns": "array",
+  "description": "Append value to an array.",
+  "phrases": {
+    "active": "Creating array"
+  },
+  "ports": {
+    "input": {
+      "in": {
+        "title": "Value",
+        "type": "any"
+      },
+      "array": {
+        "title": "Array",
+        "type": "array"
+      }
+    },
+    "output": {
+      "out": {
+        "title": "out",
+        "type": "array"
+      },
+      "length": {
+        "title": "New Length",
+        "type": "number"
+      }
+    }
+  }
+}

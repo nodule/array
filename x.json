@@ -57,6 +57,37 @@
       "ns": "array",
       "name": "join",
       "fn": "output.out = input.in.join(input.seperator)\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Value",
+            "type": "any"
+          },
+          "array": {
+            "title": "Array",
+            "type": "array"
+          }
+        },
+        "output": {
+          "out": {
+            "title": "out",
+            "type": "array"
+          },
+          "length": {
+            "title": "New Length",
+            "type": "number"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Creating array"
+      },
+      "description": "Append value to an array.",
+      "ns": "array",
+      "name": "push",
+      "fn": "output.length = input.array.push(input.in);\noutput.out = input.array;\n"
     }
   ],
   "twigs": []
