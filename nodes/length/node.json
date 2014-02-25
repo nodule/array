@@ -1,0 +1,22 @@
+{
+  "name": "length",
+  "ns": "array",
+  "description": "Outputs the length of an array.",
+  "phrases": {
+    "active": "Determining length"
+  },
+  "ports": {
+    "input": {
+      "in": {
+        "title": "Array",
+        "type": "array"
+      }
+    },
+    "output": {
+      "out": {
+        "title": "out",
+        "type": "array"
+      }
+    }
+  }
+}

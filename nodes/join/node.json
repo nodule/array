@@ -1,26 +1,25 @@
 {
-  "name": "join",
+  "name": "isEmpty",
   "ns": "array",
-  "description": "Joins all elements of an array into a string.",
+  "description": "Checks whether the array is empty.",
   "phrases": {
-    "active": "Joining array"
+    "active": "Determining whether the array is empty"
   },
   "ports": {
     "input": {
       "in": {
         "title": "Array",
         "type": "array"
-      },
-      "seperator": {
-        "title": "Seperator",
-        "type": "string",
-        "default": ","
       }
     },
     "output": {
-      "out": {
-        "title": "out",
-        "type": "string"
+      "yes": {
+        "title": "Yes",
+        "type": "array"
+      },
+      "no": {
+        "title": "No",
+        "type": "array"
       }
     }
   }

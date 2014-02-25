@@ -36,38 +36,83 @@
           "in": {
             "title": "Array",
             "type": "array"
-          },
-          "seperator": {
-            "title": "Seperator",
-            "type": "string",
-            "default": ","
           }
         },
         "output": {
           "out": {
             "title": "out",
-            "type": "string"
+            "type": "array"
           }
         }
       },
       "phrases": {
-        "active": "Joining array"
+        "active": "Creating array"
       },
-      "description": "Joins all elements of an array into a string.",
+      "description": "Creates an array.",
       "ns": "array",
-      "name": "join",
-      "fn": "output.out = input.in.join(input.seperator)\n"
+      "name": "create",
+      "fn": "output.out = input.in.slice();\n"
     },
     {
       "ports": {
         "input": {
           "in": {
-            "title": "Value",
-            "type": "any"
-          },
-          "array": {
             "title": "Array",
             "type": "array"
+          }
+        },
+        "output": {
+          "yes": {
+            "title": "Yes",
+            "type": "array"
+          },
+          "no": {
+            "title": "No",
+            "type": "array"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Determining whether the array is empty"
+      },
+      "description": "Checks whether the array is empty.",
+      "ns": "array",
+      "name": "isEmpty",
+      "fn": "on.input.in = function() {\n\n  if(data.length > 0) {\n    output( { yes: data } );\n  } else {\n    output( { no: data } );\n  }\n\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Array",
+            "type": "array"
+          }
+        },
+        "output": {
+          "out": {
+            "title": "out",
+            "type": "array"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Determining length"
+      },
+      "description": "Outputs the length of an array.",
+      "ns": "array",
+      "name": "length",
+      "fn": "on.input.in = function() {\n  output( { out: data.length } );\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Array",
+            "type": "array"
+          },
+          "value": {
+            "title": "Value",
+            "type": "any"
           }
         },
         "output": {
