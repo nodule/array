@@ -1,6 +1,7 @@
 {
   "name": "fill",
   "ns": "array",
+  "async": true,
   "description": "Fills an array to the length specified and outputs it.",
   "phrases": {
     "active": "Filling array"
@@ -9,7 +10,8 @@
     "input": {
       "in": {
         "title": "Value",
-        "type": "any"
+        "type": "any",
+        "async": true
       },
       "length": {
         "title": "Length",

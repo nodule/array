@@ -35,7 +35,8 @@
         "input": {
           "in": {
             "title": "Value",
-            "type": "any"
+            "type": "any",
+            "async": true
           },
           "length": {
             "title": "Length",
@@ -62,6 +63,7 @@
         "active": "Filling array"
       },
       "description": "Fills an array to the length specified and outputs it.",
+      "async": true,
       "ns": "array",
       "name": "fill",
       "fn": "on.input.in = function() {\n\n  if(!state.arr) state.arr = input.array || [];\n\n  state.arr.push(data);\n\n  if(state.arr.length === input.length) {\n    output({ out: state.arr });\n    state.arr = input.array || [];\n  }\n\n};\n"
