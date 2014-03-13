@@ -1,0 +1,35 @@
+{
+  "name": "fill",
+  "ns": "array",
+  "description": "Fills an array to the length specified and outputs it.",
+  "phrases": {
+    "active": "Filling array"
+  },
+  "ports": {
+    "input": {
+      "in": {
+        "title": "Value",
+        "type": "any"
+      },
+      "length": {
+        "title": "Length",
+        "type": "number"
+      },
+      "array": {
+        "title": "Array",
+        "type": "array",
+        "default": null
+      }
+    },
+    "output": {
+      "out": {
+        "title": "Array",
+        "type": "array"
+      },
+      "length": {
+        "title": "New Length",
+        "type": "number"
+      }
+    }
+  }
+}

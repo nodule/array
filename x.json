@@ -34,6 +34,42 @@
       "ports": {
         "input": {
           "in": {
+            "title": "Value",
+            "type": "any"
+          },
+          "length": {
+            "title": "Length",
+            "type": "number"
+          },
+          "array": {
+            "title": "Array",
+            "type": "array",
+            "default": null
+          }
+        },
+        "output": {
+          "out": {
+            "title": "Array",
+            "type": "array"
+          },
+          "length": {
+            "title": "New Length",
+            "type": "number"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Filling array"
+      },
+      "description": "Fills an array to the length specified and outputs it.",
+      "ns": "array",
+      "name": "fill",
+      "fn": "on.input.in = function() {\n\n  if(!state.arr) state.arr = input.array || [];\n\n  state.arr.push(data);\n\n  if(state.arr.length === input.length) {\n    output({ out: state.arr });\n    state.arr = input.array || [];\n  }\n\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "in": {
             "title": "Array",
             "type": "array"
           }
