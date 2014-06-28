@@ -89,6 +89,9 @@
           }
         }
       },
+      "expose": [
+        "chi"
+      ],
       "phrases": {
         "active": "Grouping array"
       },
