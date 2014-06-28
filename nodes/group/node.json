@@ -1,0 +1,29 @@
+{
+  "name": "group",
+  "ns": "array",
+  "async": true,
+  "description": "Takes an array and turns it into group. Items are spit out one by one.",
+  "phrases": {
+    "active": "Grouping array"
+  },
+  "ports": {
+    "input": {
+      "in": {
+        "title": "Array",
+        "type": "array",
+        "async": true
+      }
+    },
+    "output": {
+      "out": {
+        "title": "out",
+        "group": "result",
+        "type": "any"
+      },
+      "xout": {
+        "title": "Xout",
+        "type": "array"
+      }
+    }
+  }
+}

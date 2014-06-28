@@ -73,6 +73,36 @@
         "input": {
           "in": {
             "title": "Array",
+            "type": "array",
+            "async": true
+          }
+        },
+        "output": {
+          "out": {
+            "title": "out",
+            "group": "result",
+            "type": "any"
+          },
+          "xout": {
+            "title": "Xout",
+            "type": "array"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Grouping array"
+      },
+      "description": "Takes an array and turns it into group. Items are spit out one by one.",
+      "async": true,
+      "ns": "array",
+      "name": "group",
+      "fn": "on.input.in = function () {\n\n  var i;\n\n  // TODO: second parameter is a bit weird.\n  var g = chi.group('xout', output);\n  for(i = 0; i < data.length; i++) {\n    output({ out: data[i] }, g.item());\n  }\n\n  g.done();\n\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Array",
             "type": "array"
           }
         },
