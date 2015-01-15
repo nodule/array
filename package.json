@@ -20,5 +20,8 @@
   "chix": {
     "name": "array",
     "color": "rgb(136,0,35)"
+  },
+  "dependencies": {
+    "objeq": "^0.6.1"
   }
 }

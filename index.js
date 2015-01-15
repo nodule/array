@@ -4,5 +4,6 @@ module.exports = {
   group: require('./group'),
   isEmpty: require('./isEmpty'),
   length: require('./length'),
+  objeq: require('./objeq'),
   push: require('./push')
 }
