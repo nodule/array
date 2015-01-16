@@ -1,0 +1,33 @@
+{
+  "name": "map",
+  "ns": "array",
+  "async": true,
+  "description": "Creates new array output with the results of calling the provided function on every element in this array",
+  "phrases": {
+    "active": "Mapping array"
+  },
+  "ports": {
+    "input": {
+      "in": {
+        "title": "Value",
+        "type": "array",
+        "async": true
+      },
+      "fn": {
+        "title": "Function",
+        "type": "function",
+        "args": [
+          "val",
+          "index",
+          "array"
+        ]
+      }
+    },
+    "output": {
+      "out": {
+        "title": "Output",
+        "type": "array"
+      }
+    }
+  }
+}

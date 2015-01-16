@@ -181,6 +181,40 @@
       "ports": {
         "input": {
           "in": {
+            "title": "Value",
+            "type": "array",
+            "async": true
+          },
+          "fn": {
+            "title": "Function",
+            "type": "function",
+            "args": [
+              "val",
+              "index",
+              "array"
+            ]
+          }
+        },
+        "output": {
+          "out": {
+            "title": "Output",
+            "type": "array"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Mapping array"
+      },
+      "description": "Creates new array output with the results of calling the provided function on every element in this array",
+      "async": true,
+      "ns": "array",
+      "name": "map",
+      "fn": "on.input.in = function() {\n  output({\n    out: data.map(input.fn)\n  });\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "in": {
             "title": "Array",
             "type": "array",
             "asyn": true
