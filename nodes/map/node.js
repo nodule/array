@@ -1,5 +1,5 @@
 on.input.in = function() {
   output({
-    out: $.in.map($.fn)
+    out: $.write('in', $.in.map($.fn))
   });
 };

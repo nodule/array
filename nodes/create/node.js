@@ -1,1 +1,1 @@
-output.out = $.in.slice();
+output.out = $.write('in', $.in.slice())

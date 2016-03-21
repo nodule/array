@@ -1,2 +1,2 @@
-output.length = $.in.push($.value);
-output.out    = $.in;
+output.length = $.create($.in.push($.value));
+output.out    = $.get('in');

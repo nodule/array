@@ -8,8 +8,8 @@ on.input.in = function() {
       state.query = objeq(state.q);
     }
     var out = state.query($.in);
-    output({out: out});
+    output({out: $.write('in', out)});
   } catch (e) {
-    output({error: e});
+    output({error: $.write('in', e)});
   }
 };
