@@ -1,1 +1,1 @@
-output.out = input.in.slice();
+output.out = $.in.slice();

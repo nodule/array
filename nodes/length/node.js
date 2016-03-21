@@ -1,3 +1,3 @@
 on.input.in = function() {
-  output( { out: input.in.length } );
+  output( { out: $.in.length } );
 };

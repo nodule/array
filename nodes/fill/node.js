@@ -1,12 +1,12 @@
 on.input.in = function() {
 
-  if(!state.arr) state.arr = input.array || [];
+  if(!state.arr) state.arr = $.array || [];
 
-  state.arr.push(input.in);
+  state.arr.push($.in);
 
-  if(state.arr.length === input.length) {
+  if(state.arr.length === $.length) {
     output({ out: state.arr });
-    state.arr = input.array || [];
+    state.arr = $.array || [];
   }
 
 };
