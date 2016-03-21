@@ -1,5 +1,5 @@
 on.input.in = function() {
   output({
-    out: data.map(input.fn)
+    out: input.in.map(input.fn)
   });
 };

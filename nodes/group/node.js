@@ -4,8 +4,8 @@ on.input.in = function () {
 
   // TODO: second parameter is a bit weird.
   var g = chi.group('xout', output);
-  for(i = 0; i < data.length; i++) {
-    output({ out: data[i] }, g.item());
+  for(i = 0; i < input.in.length; i++) {
+    output({ out: input.in[i] }, g.item());
   }
 
   g.done();

@@ -1,9 +1,7 @@
 on.input.in = function() {
-
-  if(data.length > 0) {
-    output( { yes: data } );
+  if(input.in.length > 0) {
+    output( { yes: input.in } );
   } else {
-    output( { no: data } );
+    output( { no: input.in } );
   }
-
 };

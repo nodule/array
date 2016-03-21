@@ -7,7 +7,7 @@ on.input.in = function() {
       state.q = input.query;
       state.query = objeq(state.q);
     }
-    var out = state.query(data);
+    var out = state.query(input.in);
     output({out: out});
   } catch (e) {
     output({error: e});
