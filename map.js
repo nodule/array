@@ -15,7 +15,7 @@ module.exports = {
         fn: function __IN__(data, x, source, state, input, output) {
           var r = function() {
             output({
-              out: data.map(input.fn)
+              out: $.write('in', $.in.map($.fn))
             });
           }.call(this);
           return {

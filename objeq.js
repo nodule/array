@@ -20,17 +20,17 @@ module.exports = {
         fn: function __IN__(data, x, source, state, input, output, objeq) {
           var r = function() {
             try {
-              if (input.query !== state.q) {
-                state.q = input.query;
+              if ($.query !== state.q) {
+                state.q = $.query;
                 state.query = objeq(state.q);
               }
-              var out = state.query(data);
+              var out = state.query($.in);
               output({
-                out: out
+                out: $.write('in', out)
               });
             } catch (e) {
               output({
-                error: e
+                error: $.write('in', e)
               });
             }
           }.call(this);

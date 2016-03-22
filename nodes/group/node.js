@@ -5,7 +5,7 @@ on.input.in = function () {
   var g = chi.group('xout', output);
   for(i = 0; i < $.in.length; i++) {
     output({
-      out: $.isPacket(in[i]) ? $.in[i] : $.create($.in[i])
+      out: $.isPacket($.in[i]) ? $.in[i] : $.create($.in[i])
       }, g.item()
     );
   }

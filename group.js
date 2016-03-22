@@ -19,9 +19,9 @@ module.exports = {
 
             // TODO: second parameter is a bit weird.
             var g = chi.group('xout', output);
-            for (i = 0; i < data.length; i++) {
+            for (i = 0; i < $.in.length; i++) {
               output({
-                out: data[i]
+                out: $.isPacket($.in[i]) ? $.in[i] : $.create($.in[i])
               }, g.item());
             }
 

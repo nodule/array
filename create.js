@@ -19,9 +19,9 @@ module.exports = {
       }
     }
   },
-  fn: function create(input, output, state, done, cb, on) {
+  fn: function create(input, $, output, state, done, cb, on) {
     var r = function() {
-      output.out = input.in.slice();
+      output.out = $.write('in', $.in.slice())
     }.call(this);
     return {
       output: output,

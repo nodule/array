@@ -27,10 +27,10 @@ module.exports = {
       }
     }
   },
-  fn: function push(input, output, state, done, cb, on) {
+  fn: function push(input, $, output, state, done, cb, on) {
     var r = function() {
-      output.length = input.in.push(input.value);
-      output.out = input.in;
+      output.length = $.create($.in.push($.value));
+      output.out = $.get('in');
     }.call(this);
     return {
       output: output,

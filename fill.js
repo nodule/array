@@ -14,15 +14,13 @@ module.exports = {
         async: true,
         fn: function __IN__(data, x, source, state, input, output) {
           var r = function() {
-            if (!state.arr) state.arr = input.array || [];
-
-            state.arr.push(data);
-
-            if (state.arr.length === input.length) {
+            if (!state.arr) state.arr = $.array || [];
+            state.arr.push($.get('in'));
+            if (state.arr.length === $.length) {
               output({
-                out: state.arr
+                out: $.create(state.arr)
               });
-              state.arr = input.array || [];
+              state.arr = $.array || [];
             }
           }.call(this);
           return {
