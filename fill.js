@@ -12,7 +12,7 @@ module.exports = {
         title: "Value",
         type: "any",
         async: true,
-        fn: function __IN__(data, x, source, state, input, output) {
+        fn: function __IN__(data, source, state, input, $, output) {
           var r = function() {
             if (!state.arr) state.arr = $.array || [];
             state.arr.push($.get('in'));

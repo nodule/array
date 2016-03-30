@@ -12,7 +12,7 @@ module.exports = {
         title: "Value",
         type: "array",
         async: true,
-        fn: function __IN__(data, x, source, state, input, output) {
+        fn: function __IN__(data, source, state, input, $, output) {
           var r = function() {
             output({
               out: $.write('in', $.in.map($.fn))

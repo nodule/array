@@ -13,7 +13,7 @@ module.exports = {
         title: "Array",
         type: "array",
         async: true,
-        fn: function __IN__(data, x, source, state, input, output, chi) {
+        fn: function __IN__(data, source, state, input, $, output) {
           var r = function() {
             var i;
 

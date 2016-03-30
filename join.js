@@ -10,7 +10,7 @@ module.exports = {
       "in": {
         title: "Array",
         type: "array",
-        fn: function __IN__(data, x, source, state, input, output) {
+        fn: function __IN__(data, source, state, input, $, output) {
           var r = function() {
             if ($.in.length > 0) {
               output({

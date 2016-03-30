@@ -17,7 +17,7 @@ module.exports = {
         title: "Array",
         type: "array",
         asyn: true,
-        fn: function __IN__(data, x, source, state, input, output, objeq) {
+        fn: function __IN__(data, source, state, input, $, output, objeq) {
           var r = function() {
             try {
               if ($.query !== state.q) {
