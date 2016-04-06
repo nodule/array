@@ -69,7 +69,7 @@
       "async": true,
       "ns": "array",
       "name": "fill",
-      "fn": "on.input.in = function() {\n  if(!state.arr) state.arr = $.array || [];\n  state.arr.push($.get('in'));\n  if(state.arr.length === $.length) {\n    output({ out: $.create(state.arr) });\n    state.arr = $.array || [];\n  }\n};\n"
+      "fn": "on.input.in = function() {\n  if(!state.arr) state.arr = $.array || [];\n  state.arr.push($.in);\n  if(state.arr.length === $.length) {\n    output({ out: $.create(state.arr) });\n    state.arr = $.array || [];\n  }\n};\n"
     },
     {
       "ports": {
