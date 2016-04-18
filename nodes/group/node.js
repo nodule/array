@@ -1,14 +1,10 @@
 on.input.in = function () {
-  var i;
+  var g = chix_group.send.create()
+  output({xout: g.open()})
 
-  // TODO: second parameter is a bit weird.
-  var g = chi.group('xout', output);
-  for(i = 0; i < $.in.length; i++) {
-    output({
-      out: $.isPacket($.in[i]) ? $.in[i] : $.create($.in[i])
-      }, g.item()
-    );
+  for(var i = 0; i < $.in.length; i++) {
+    output({out: $.create($.in[i])})
   }
 
-  g.done();
+  output({xout: g.close()});
 };

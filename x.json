@@ -7,6 +7,7 @@
     "url": "https://github.com/nodule/array.git"
   },
   "dependencies": {
+    "chix-group": "github:psichi/chix-group",
     "objeq": "^0.6.1"
   },
   "nodes": [
@@ -72,6 +73,11 @@
       "fn": "on.input.in = function() {\n  if(!state.arr) state.arr = $.array || [];\n  state.arr.push($.in);\n  if(state.arr.length === $.length) {\n    output({ out: $.create(state.arr) });\n    state.arr = $.array || [];\n  }\n};\n"
     },
     {
+      "dependencies": {
+        "npm": {
+          "chix-group": "latest"
+        }
+      },
       "ports": {
         "input": {
           "in": {
@@ -87,14 +93,10 @@
             "type": "any"
           },
           "xout": {
-            "title": "Xout",
-            "type": "array"
+            "title": "Xout"
           }
         }
       },
-      "expose": [
-        "chi"
-      ],
       "phrases": {
         "active": "Grouping array"
       },
@@ -102,7 +104,7 @@
       "async": true,
       "ns": "array",
       "name": "group",
-      "fn": "on.input.in = function () {\n  var i;\n\n  // TODO: second parameter is a bit weird.\n  var g = chi.group('xout', output);\n  for(i = 0; i < $.in.length; i++) {\n    output({\n      out: $.isPacket($.in[i]) ? $.in[i] : $.create($.in[i])\n      }, g.item()\n    );\n  }\n\n  g.done();\n};\n"
+      "fn": "on.input.in = function () {\n  var g = chix_group.send.create()\n  output({xout: g.open()})\n\n  for(var i = 0; i < $.in.length; i++) {\n    output({out: $.create($.in[i])})\n  }\n\n  output({xout: g.close()});\n};\n"
     },
     {
       "ports": {

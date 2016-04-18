@@ -6,26 +6,28 @@ module.exports = {
   phrases: {
     active: "Grouping array"
   },
-  expose: ["chi"],
   ports: {
     input: {
       "in": {
         title: "Array",
         type: "array",
         async: true,
-        fn: function __IN__(data, source, state, input, $, output) {
+        fn: function __IN__(data, source, state, input, $, output, chix_group) {
           var r = function() {
-            var i;
+            var g = chix_group.send.create()
+            output({
+              xout: g.open()
+            })
 
-            // TODO: second parameter is a bit weird.
-            var g = chi.group('xout', output);
-            for (i = 0; i < $.in.length; i++) {
+            for (var i = 0; i < $.in.length; i++) {
               output({
-                out: $.isPacket($.in[i]) ? $.in[i] : $.create($.in[i])
-              }, g.item());
+                out: $.create($.in[i])
+              })
             }
 
-            g.done();
+            output({
+              xout: g.close()
+            });
           }.call(this);
           return {
             state: state,
@@ -41,9 +43,13 @@ module.exports = {
         type: "any"
       },
       xout: {
-        title: "Xout",
-        type: "array"
+        title: "Xout"
       }
+    }
+  },
+  dependencies: {
+    npm: {
+      "chix-group": require('chix-group')
     }
   },
   state: {}
