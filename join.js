@@ -1,44 +1,38 @@
 module.exports = {
-  name: "isEmpty",
+  description: "Joins all elements of an array into a string.",
+  name: "join",
   ns: "array",
-  description: "Checks whether the array is empty.",
   phrases: {
-    active: "Determining whether the array is empty"
+    active: "Joining array"
   },
   ports: {
     input: {
       "in": {
         title: "Array",
-        type: "array",
-        fn: function __IN__(data, source, state, input, $, output) {
-          var r = function() {
-            if ($.in.length > 0) {
-              output({
-                yes: $.get('in')
-              });
-            } else {
-              output({
-                no: $.get('in')
-              });
-            }
-          }.call(this);
-          return {
-            state: state,
-            return: r
-          };
-        }
+        type: "array"
+      },
+      seperator: {
+        title: "Seperator",
+        type: "string",
+        "default": ","
       }
     },
     output: {
-      yes: {
-        title: "Yes",
-        type: "array"
-      },
-      no: {
-        title: "No",
-        type: "array"
+      out: {
+        title: "out",
+        type: "string"
       }
     }
   },
-  state: {}
+  fn: function join(input, $, output, state, done, cb, on) {
+    var r = function() {
+      output.out = $.write('in', $.in.join($.seperator))
+    }.call(this);
+    return {
+      output: output,
+      state: state,
+      on: on,
+      return: r
+    };
+  }
 }

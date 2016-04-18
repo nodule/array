@@ -1,9 +1,9 @@
 {
-  "name": "create",
+  "name": "isEmpty",
   "ns": "array",
-  "description": "Creates an array.",
+  "description": "Checks whether the array is empty.",
   "phrases": {
-    "active": "Creating array"
+    "active": "Determining whether the array is empty"
   },
   "ports": {
     "input": {
@@ -13,8 +13,12 @@
       }
     },
     "output": {
-      "out": {
-        "title": "out",
+      "yes": {
+        "title": "Yes",
+        "type": "array"
+      },
+      "no": {
+        "title": "No",
         "type": "array"
       }
     }

@@ -3,6 +3,7 @@ module.exports = {
   fill: require('./fill'),
   group: require('./group'),
   isEmpty: require('./isEmpty'),
+  join: require('./join'),
   length: require('./length'),
   map: require('./map'),
   objeq: require('./objeq'),

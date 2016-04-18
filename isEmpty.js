@@ -1,33 +1,44 @@
 module.exports = {
-  name: "create",
+  name: "isEmpty",
   ns: "array",
-  description: "Creates an array.",
+  description: "Checks whether the array is empty.",
   phrases: {
-    active: "Creating array"
+    active: "Determining whether the array is empty"
   },
   ports: {
     input: {
       "in": {
         title: "Array",
-        type: "array"
+        type: "array",
+        fn: function __IN__(data, source, state, input, $, output) {
+          var r = function() {
+            if ($.in.length > 0) {
+              output({
+                yes: $.get('in')
+              });
+            } else {
+              output({
+                no: $.get('in')
+              });
+            }
+          }.call(this);
+          return {
+            state: state,
+            return: r
+          };
+        }
       }
     },
     output: {
-      out: {
-        title: "out",
+      yes: {
+        title: "Yes",
+        type: "array"
+      },
+      no: {
+        title: "No",
         type: "array"
       }
     }
   },
-  fn: function create(input, $, output, state, done, cb, on) {
-    var r = function() {
-      output.out = $.write('in', $.in.slice());
-    }.call(this);
-    return {
-      output: output,
-      state: state,
-      on: on,
-      return: r
-    };
-  }
+  state: {}
 }

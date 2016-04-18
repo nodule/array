@@ -113,29 +113,6 @@
           }
         },
         "output": {
-          "out": {
-            "title": "out",
-            "type": "array"
-          }
-        }
-      },
-      "phrases": {
-        "active": "Creating array"
-      },
-      "description": "Creates an array.",
-      "ns": "array",
-      "name": "create",
-      "fn": "output.out = $.write('in', $.in.slice());\n"
-    },
-    {
-      "ports": {
-        "input": {
-          "in": {
-            "title": "Array",
-            "type": "array"
-          }
-        },
-        "output": {
           "yes": {
             "title": "Yes",
             "type": "array"
@@ -153,6 +130,34 @@
       "ns": "array",
       "name": "isEmpty",
       "fn": "on.input.in = function() {\n  if($.in.length > 0) {\n    output( { yes: $.get('in') } );\n  } else {\n    output( { no: $.get('in') } );\n  }\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Array",
+            "type": "array"
+          },
+          "seperator": {
+            "title": "Seperator",
+            "type": "string",
+            "default": ","
+          }
+        },
+        "output": {
+          "out": {
+            "title": "out",
+            "type": "string"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Joining array"
+      },
+      "ns": "array",
+      "name": "join",
+      "description": "Joins all elements of an array into a string.",
+      "fn": "output.out = $.write('in', $.in.join($.seperator))\n"
     },
     {
       "ports": {
