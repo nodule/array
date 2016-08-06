@@ -12,6 +12,12 @@
   },
   "nodes": [
     {
+      "name": "create",
+      "ns": "array",
+      "description": "Creates an array.",
+      "phrases": {
+        "active": "Creating array"
+      },
       "ports": {
         "input": {
           "in": {
@@ -26,15 +32,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Creating array"
-      },
-      "description": "Creates an array.",
-      "ns": "array",
-      "name": "create",
       "fn": "output.out = $.write('in', $.in.slice())\n"
     },
     {
+      "name": "fill",
+      "ns": "array",
+      "async": true,
+      "description": "Fills an array to the length specified and outputs it.",
+      "phrases": {
+        "active": "Filling array"
+      },
       "ports": {
         "input": {
           "in": {
@@ -63,128 +70,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Filling array"
-      },
-      "description": "Fills an array to the length specified and outputs it.",
-      "async": true,
-      "ns": "array",
-      "name": "fill",
       "fn": "on.input.in = function() {\n  if(!state.arr) state.arr = $.array || [];\n  state.arr.push($.in);\n  if(state.arr.length === $.length) {\n    output({ out: $.create(state.arr) });\n    state.arr = $.array || [];\n  }\n};\n"
     },
     {
-      "dependencies": {
-        "npm": {
-          "chix-group": "latest"
-        }
-      },
-      "ports": {
-        "input": {
-          "in": {
-            "title": "Array",
-            "type": "array",
-            "async": true
-          }
-        },
-        "output": {
-          "out": {
-            "title": "out",
-            "group": "result",
-            "type": "any"
-          },
-          "xout": {
-            "title": "Xout"
-          }
-        }
-      },
-      "phrases": {
-        "active": "Grouping array"
-      },
-      "description": "Takes an array and turns it into group. Items are spit out one by one.",
+      "name": "filter",
+      "ns": "array",
       "async": true,
-      "ns": "array",
-      "name": "group",
-      "fn": "on.input.in = function () {\n  var g = chix_group.send.create()\n  output({xout: g.open()})\n\n  for(var i = 0; i < $.in.length; i++) {\n    output({out: $.create($.in[i])})\n  }\n\n  output({xout: g.close()});\n};\n"
-    },
-    {
-      "ports": {
-        "input": {
-          "in": {
-            "title": "Array",
-            "type": "array"
-          }
-        },
-        "output": {
-          "yes": {
-            "title": "Yes",
-            "type": "array"
-          },
-          "no": {
-            "title": "No",
-            "type": "array"
-          }
-        }
-      },
+      "description": "Creates a new array with all elements that pass the test implemented by the provided function.",
       "phrases": {
-        "active": "Determining whether the array is empty"
+        "active": "Filtering array"
       },
-      "description": "Checks whether the array is empty.",
-      "ns": "array",
-      "name": "isEmpty",
-      "fn": "on.input.in = function() {\n  if($.in.length > 0) {\n    output( { yes: $.get('in') } );\n  } else {\n    output( { no: $.get('in') } );\n  }\n};\n"
-    },
-    {
-      "ports": {
-        "input": {
-          "in": {
-            "title": "Array",
-            "type": "array"
-          },
-          "seperator": {
-            "title": "Seperator",
-            "type": "string",
-            "default": ","
-          }
-        },
-        "output": {
-          "out": {
-            "title": "out",
-            "type": "string"
-          }
-        }
-      },
-      "phrases": {
-        "active": "Joining array"
-      },
-      "ns": "array",
-      "name": "join",
-      "description": "Joins all elements of an array into a string.",
-      "fn": "output.out = $.write('in', $.in.join($.seperator))\n"
-    },
-    {
-      "ports": {
-        "input": {
-          "in": {
-            "title": "Array",
-            "type": "array"
-          }
-        },
-        "output": {
-          "out": {
-            "title": "out",
-            "type": "array"
-          }
-        }
-      },
-      "phrases": {
-        "active": "Determining length"
-      },
-      "description": "Outputs the length of an array.",
-      "ns": "array",
-      "name": "length",
-      "fn": "on.input.in = function() {\n  output( { out: $.write('in', $.in.length) } );\n};\n"
-    },
-    {
       "ports": {
         "input": {
           "in": {
@@ -209,16 +104,167 @@
           }
         }
       },
+      "fn": "on.input.in = function() {\n  output({\n    out: $.write('in', $.in.filter($.fn))\n  });\n};\n"
+    },
+    {
+      "name": "group",
+      "ns": "array",
+      "async": true,
+      "description": "Takes an array and turns it into group. Items are spit out one by one.",
+      "phrases": {
+        "active": "Grouping array"
+      },
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Array",
+            "type": "array",
+            "async": true
+          }
+        },
+        "output": {
+          "out": {
+            "title": "out",
+            "group": "result",
+            "type": "any"
+          },
+          "xout": {
+            "title": "Xout"
+          }
+        }
+      },
+      "dependencies": {
+        "npm": {
+          "chix-group": "latest"
+        }
+      },
+      "fn": "on.input.in = function () {\n  var g = chix_group.send.create()\n  output({xout: g.open()})\n\n  for(var i = 0; i < $.in.length; i++) {\n    output({out: $.create($.in[i])})\n  }\n\n  output({xout: g.close()});\n};\n"
+    },
+    {
+      "name": "isEmpty",
+      "ns": "array",
+      "description": "Checks whether the array is empty.",
+      "phrases": {
+        "active": "Determining whether the array is empty"
+      },
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Array",
+            "type": "array"
+          }
+        },
+        "output": {
+          "yes": {
+            "title": "Yes",
+            "type": "array"
+          },
+          "no": {
+            "title": "No",
+            "type": "array"
+          }
+        }
+      },
+      "fn": "on.input.in = function() {\n  if($.in.length > 0) {\n    output( { yes: $.get('in') } );\n  } else {\n    output( { no: $.get('in') } );\n  }\n};\n"
+    },
+    {
+      "description": "Joins all elements of an array into a string.",
+      "name": "join",
+      "ns": "array",
+      "phrases": {
+        "active": "Joining array"
+      },
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Array",
+            "type": "array"
+          },
+          "seperator": {
+            "title": "Seperator",
+            "type": "string",
+            "default": ","
+          }
+        },
+        "output": {
+          "out": {
+            "title": "out",
+            "type": "string"
+          }
+        }
+      },
+      "fn": "output.out = $.write('in', $.in.join($.seperator))\n"
+    },
+    {
+      "name": "length",
+      "ns": "array",
+      "description": "Outputs the length of an array.",
+      "phrases": {
+        "active": "Determining length"
+      },
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Array",
+            "type": "array"
+          }
+        },
+        "output": {
+          "out": {
+            "title": "out",
+            "type": "array"
+          }
+        }
+      },
+      "fn": "on.input.in = function() {\n  output( { out: $.write('in', $.in.length) } );\n};\n"
+    },
+    {
+      "name": "map",
+      "ns": "array",
+      "async": true,
+      "description": "Creates new array output with the results of calling the provided function on every element in this array",
       "phrases": {
         "active": "Mapping array"
       },
-      "description": "Creates new array output with the results of calling the provided function on every element in this array",
-      "async": true,
-      "ns": "array",
-      "name": "map",
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Value",
+            "type": "array",
+            "async": true
+          },
+          "fn": {
+            "title": "Function",
+            "type": "function",
+            "args": [
+              "val",
+              "index",
+              "array"
+            ]
+          }
+        },
+        "output": {
+          "out": {
+            "title": "Output",
+            "type": "array"
+          }
+        }
+      },
       "fn": "on.input.in = function() {\n  output({\n    out: $.write('in', $.in.map($.fn))\n  });\n};\n"
     },
     {
+      "name": "objeq",
+      "ns": "array",
+      "description": "objeq allows POJSO's (Plain-Old JavaScript Objects) to be queried in real-time.",
+      "async": true,
+      "phrases": {
+        "active": "Querying object"
+      },
+      "dependencies": {
+        "npm": {
+          "objeq": "latest"
+        }
+      },
       "ports": {
         "input": {
           "in": {
@@ -243,21 +289,15 @@
           }
         }
       },
-      "dependencies": {
-        "npm": {
-          "objeq": "latest"
-        }
-      },
-      "phrases": {
-        "active": "Querying object"
-      },
-      "async": true,
-      "description": "objeq allows POJSO's (Plain-Old JavaScript Objects) to be queried in real-time.",
-      "ns": "array",
-      "name": "objeq",
       "fn": "state.query = null;\nstate.q = '';\n\non.input.in = function() {\n  try {\n    if ($.query !== state.q) {\n      state.q = $.query;\n      state.query = objeq(state.q);\n    }\n    var out = state.query($.in);\n    output({out: $.write('in', out)});\n  } catch (e) {\n    output({error: $.write('in', e)});\n  }\n};\n"
     },
     {
+      "name": "push",
+      "ns": "array",
+      "description": "Append value to an array.",
+      "phrases": {
+        "active": "Creating array"
+      },
       "ports": {
         "input": {
           "in": {
@@ -280,14 +320,7 @@
           }
         }
       },
-      "phrases": {
-        "active": "Creating array"
-      },
-      "description": "Append value to an array.",
-      "ns": "array",
-      "name": "push",
       "fn": "output.length = $.create($.in.push($.value));\noutput.out    = $.get('in');\n"
     }
-  ],
-  "twigs": []
+  ]
 }
