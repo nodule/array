@@ -1,0 +1,33 @@
+{
+  "name": "find",
+  "ns": "array",
+  "async": true,
+  "description": "Find within array",
+  "phrases": {
+    "active": "Finding within array"
+  },
+  "ports": {
+    "input": {
+      "in": {
+        "title": "Value",
+        "type": "array",
+        "async": true
+      },
+      "find": {
+        "title": "Find",
+        "type": "object"
+      }
+    },
+    "output": {
+      "out": {
+        "title": "Output",
+        "type": "any"
+      }
+    }
+  },
+  "dependencies": {
+    "npm": {
+      "lodash": "latest"
+    }
+  }
+}

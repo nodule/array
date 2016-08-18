@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "chix-group": "github:psichi/chix-group",
+    "lodash": "^4.15.0",
     "objeq": "^0.6.1"
   },
   "nodes": [
@@ -105,6 +106,40 @@
         }
       },
       "fn": "on.input.in = function() {\n  output({\n    out: $.write('in', $.in.filter($.fn))\n  });\n};\n"
+    },
+    {
+      "name": "find",
+      "ns": "array",
+      "async": true,
+      "description": "Find within array",
+      "phrases": {
+        "active": "Finding within array"
+      },
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Value",
+            "type": "array",
+            "async": true
+          },
+          "find": {
+            "title": "Find",
+            "type": "object"
+          }
+        },
+        "output": {
+          "out": {
+            "title": "Output",
+            "type": "any"
+          }
+        }
+      },
+      "dependencies": {
+        "npm": {
+          "lodash": "latest"
+        }
+      },
+      "fn": "on.input.in = function() {\n  output({\n    out: $.write('in', lodash.find($.in, $.find))\n  });\n};\n"
     },
     {
       "name": "group",

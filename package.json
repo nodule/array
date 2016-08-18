@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "chix-group": "github:psichi/chix-group",
+    "lodash": "^4.15.0",
     "objeq": "^0.6.1"
   }
 }
