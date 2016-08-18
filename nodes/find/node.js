@@ -2,11 +2,11 @@ on.input.in = function() {
   var out = $.write('in', lodash.find($.in, $.find))
   if (out) {
     output({
-      '+': out
+      'match': out
     });
   } else {
     output({
-      '-': $.get('in')
+      'nomatch': $.get('in')
     });
   }
 };

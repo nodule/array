@@ -17,11 +17,11 @@ module.exports = {
             var out = $.write('in', lodash.find($.in, $.find))
             if (out) {
               output({
-                '+': out
+                'match': out
               });
             } else {
               output({
-                '-': $.get('in')
+                'nomatch': $.get('in')
               });
             }
           }.call(this);
@@ -37,11 +37,11 @@ module.exports = {
       }
     },
     output: {
-      "+": {
-        title: "Output",
+      match: {
+        title: "Match",
         type: "any"
       },
-      "-": {
+      nomatch: {
         title: "No Match",
         type: "array"
       }

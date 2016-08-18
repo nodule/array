@@ -19,11 +19,11 @@
       }
     },
     "output": {
-      "+": {
-        "title": "Output",
+      "match": {
+        "title": "Match",
         "type": "any"
       },
-      "-": {
+      "nomatch": {
         "title": "No Match",
         "type": "array"
       }
