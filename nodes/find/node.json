@@ -19,9 +19,13 @@
       }
     },
     "output": {
-      "out": {
+      "+": {
         "title": "Output",
         "type": "any"
+      },
+      "-": {
+        "title": "No Match",
+        "type": "array"
       }
     }
   },

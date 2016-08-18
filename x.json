@@ -128,9 +128,13 @@
           }
         },
         "output": {
-          "out": {
+          "+": {
             "title": "Output",
             "type": "any"
+          },
+          "-": {
+            "title": "No Match",
+            "type": "array"
           }
         }
       },
@@ -139,7 +143,7 @@
           "lodash": "latest"
         }
       },
-      "fn": "on.input.in = function() {\n  output({\n    out: $.write('in', lodash.find($.in, $.find))\n  });\n};\n"
+      "fn": "on.input.in = function() {\n  var out = $.write('in', lodash.find($.in, $.find))\n  if (out) {\n    output({\n      '+': out\n    });\n  } else {\n    output({\n      '-': $.get('in')\n    });\n  }\n};\n"
     },
     {
       "name": "group",

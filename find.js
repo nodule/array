@@ -14,9 +14,16 @@ module.exports = {
         async: true,
         fn: function __IN__(data, source, state, input, $, output, lodash) {
           var r = function() {
-            output({
-              out: $.write('in', lodash.find($.in, $.find))
-            });
+            var out = $.write('in', lodash.find($.in, $.find))
+            if (out) {
+              output({
+                '+': out
+              });
+            } else {
+              output({
+                '-': $.get('in')
+              });
+            }
           }.call(this);
           return {
             state: state,
@@ -30,9 +37,13 @@ module.exports = {
       }
     },
     output: {
-      out: {
+      "+": {
         title: "Output",
         type: "any"
+      },
+      "-": {
+        title: "No Match",
+        type: "array"
       }
     }
   },
