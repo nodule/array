@@ -143,7 +143,7 @@
           "lodash": "latest"
         }
       },
-      "fn": "on.input.in = function() {\n  var out = $.write('in', lodash.find($.in, $.find))\n  if (out) {\n    output({\n      'match': out\n    });\n  } else {\n    output({\n      'nomatch': $.get('in')\n    });\n  }\n};\n"
+      "fn": "on.input.in = function() {\n  var out = lodash.find($.in, $.find);\n\n  if (out) {\n    output({\n      'match': $.write('in', out)\n    });\n  } else {\n    output({\n      'nomatch': $.get('in')\n    });\n  }\n};\n"
     },
     {
       "name": "group",

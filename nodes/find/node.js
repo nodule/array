@@ -1,8 +1,9 @@
 on.input.in = function() {
-  var out = $.write('in', lodash.find($.in, $.find))
+  var out = lodash.find($.in, $.find);
+
   if (out) {
     output({
-      'match': out
+      'match': $.write('in', out)
     });
   } else {
     output({
