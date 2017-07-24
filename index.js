@@ -9,5 +9,6 @@ module.exports = {
   length: require('./length'),
   map: require('./map'),
   objeq: require('./objeq'),
-  push: require('./push')
+  push: require('./push'),
+  sort: require('./sort')
 }
