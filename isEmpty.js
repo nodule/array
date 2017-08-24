@@ -1,6 +1,7 @@
 module.exports = {
   name: "isEmpty",
   ns: "array",
+  async: true,
   description: "Checks whether the array is empty.",
   phrases: {
     active: "Determining whether the array is empty"
@@ -10,6 +11,7 @@ module.exports = {
       "in": {
         title: "Array",
         type: "array",
+        async: true,
         fn: function __IN__(data, source, state, input, $, output) {
           var r = function() {
             if ($.in.length > 0) {

@@ -1,6 +1,7 @@
 {
   "name": "length",
   "ns": "array",
+  "async": true,
   "description": "Outputs the length of an array.",
   "phrases": {
     "active": "Determining length"
@@ -9,7 +10,8 @@
     "input": {
       "in": {
         "title": "Array",
-        "type": "array"
+        "type": "array",
+        "async": true
       }
     },
     "output": {

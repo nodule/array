@@ -1,6 +1,7 @@
 {
   "name": "isEmpty",
   "ns": "array",
+  "async": true,
   "description": "Checks whether the array is empty.",
   "phrases": {
     "active": "Determining whether the array is empty"
@@ -9,7 +10,8 @@
     "input": {
       "in": {
         "title": "Array",
-        "type": "array"
+        "type": "array",
+        "async": true
       }
     },
     "output": {
